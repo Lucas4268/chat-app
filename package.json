@@ -15,5 +15,8 @@
     "mongoose": "^6.2.4",
     "path": "^0.12.7",
     "socket.io": "^4.4.1"
+  },
+  "scripts": {
+    "start": "node index"
   }
 }
