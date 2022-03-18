@@ -11,10 +11,10 @@ const getMessages = async(req, res = response) => {
                 { from: uid },
                 { to: uid }
             ]
-        })
+        }).populate('from')
 
         const usersRepeat = messagesDB.map( message => {
-            return message.from.toString() === uid ? message.to.toString() : message.from.toString()
+            return message.from._id.toString() === uid ? message.to.toString() : message.from._id.toString()
         })
 
         const users = []
@@ -26,7 +26,7 @@ const getMessages = async(req, res = response) => {
 
         let messages = {}
         users.map( user => {
-            const messagesThisUser = messagesDB.filter( message => message.from.toString() === user || message.to.toString() === user)
+            const messagesThisUser = messagesDB.filter( message => message.from._id.toString() === user || message.to.toString() === user)
             console.log(messagesThisUser)
 
             messages = {
