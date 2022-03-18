@@ -2,10 +2,10 @@ const Message = require("../../models/Message");
 
 const saveMessage = async ( message ) => {
     try {
-        const newMessage = new Message( message );
+        const newMessage = new Message( message )
         await newMessage.save()
 
-        return newMessage.populate('User')
+        return newMessage.populate('from')
     } catch (err) {
         console.log(err)
         return false
