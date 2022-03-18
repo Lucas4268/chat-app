@@ -14,6 +14,11 @@ const MessageSchema = Schema({
     message: {
         type: String,
         required: true
+    },
+    pending: {
+        type: Boolean,
+        required: true,
+        default: true
     }
 }, {
     timestamps: true

@@ -5,7 +5,7 @@ const saveMessage = async ( message ) => {
         const newMessage = new Message( message );
         await newMessage.save()
 
-        return newMessage
+        return newMessage.populate('User')
     } catch (err) {
         console.log(err)
         return false
