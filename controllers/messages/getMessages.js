@@ -27,7 +27,6 @@ const getMessages = async(req, res = response) => {
         let messages = {}
         users.map( user => {
             const messagesThisUser = messagesDB.filter( message => message.from._id.toString() === user || message.to.toString() === user)
-            console.log(messagesThisUser)
 
             messages = {
                 ...messages,

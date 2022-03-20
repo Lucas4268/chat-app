@@ -19,9 +19,11 @@ const MessageSchema = Schema({
         type: Boolean,
         required: true,
         default: true
+    },
+    createdAt: {
+        type: Date,
+        required: true
     }
-}, {
-    timestamps: true
 });
 
 MessageSchema.method('toJSON', function() {
