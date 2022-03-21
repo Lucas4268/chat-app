@@ -14,6 +14,10 @@ const UserSchema = Schema({
         type: String,
         required: false
     },
+    token: {
+        type: String,
+        required: false
+    },
     password: {
         type: String,
         required: true,
