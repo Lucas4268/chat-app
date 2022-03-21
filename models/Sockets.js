@@ -39,13 +39,13 @@ class Sockets {
             socket.on('personal-message', async(payload) => {
                 // guardar mensage
                 const message = await saveMessage( payload );
-
+                console.log(payload)
                 
                 await messaging.send({
                     token: payload.token,
-                    data: {
-                        "message": payload.message,
-                        "fromUser": message.from.name
+                    notification: {
+                        "title": message.from.name,
+                        "body": payload.message
                     }
                 })        
 

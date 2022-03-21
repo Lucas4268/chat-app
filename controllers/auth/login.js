@@ -27,6 +27,13 @@ const login = async (req, res = response) => {
 
         const token = await generateJWT( user._id )
 
+        console.log('req.body.token')
+        console.log(req.body.tokenNotification)
+        
+        user.token = req.body.tokenNotification
+
+        await user.save()
+
         res.json({
             ok: true,
             user,
