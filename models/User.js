@@ -14,6 +14,14 @@ const UserSchema = Schema({
         type: String,
         required: false
     },
+    friends: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    requests: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     token: {
         type: String,
         required: false
@@ -22,16 +30,19 @@ const UserSchema = Schema({
         type: String,
         required: true,
     },
+    tokenNotification: {
+        type: String
+    },
     online: {
         type: Boolean,
         default: false
     }
 });
 
-UserSchema.method('toJSON', function() {
-    const { __v, _id, password, ...object } = this.toObject();
-    object.uid = _id;
-    return object;
-});
+// UserSchema.method('toJSON', function() {
+//     const { __v, _id, password, ...object } = this.toObject();
+//     object.uid = _id;
+//     return object;
+// });
 
 module.exports = model('User', UserSchema );

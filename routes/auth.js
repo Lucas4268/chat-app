@@ -14,7 +14,6 @@ router.post(
     [
         check('userName', 'El nombre de usuario es requerido.').trim().not().isEmpty(),
         check('password', 'La contraseña es requerida.').trim().not().isEmpty(),
-        check('tokenNotification', 'El token es requerido.').trim().not().isEmpty(),
         validateFields
     ],
     login

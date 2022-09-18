@@ -1,7 +1,9 @@
 const User = require("../../models/User");
 
-const userConnect = async (uid) => {
-    const user = await User.findById(uid);
+const userConnect = async (_id) => {
+    const user = await User.findById(_id);
+    if (!user) return null;
+    
     user.online = true;
     await user.save();
 

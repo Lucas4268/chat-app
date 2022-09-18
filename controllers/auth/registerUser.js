@@ -28,7 +28,7 @@ const registerUser = async (req, res = response) => {
         res.json({
             ok: true,
             user: newUser,
-            // token
+            token
         })
     } catch (err) {
         console.log(err);

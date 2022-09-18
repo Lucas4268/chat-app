@@ -8,7 +8,7 @@ const login = async (req, res = response) => {
     const { userName, password } = req.body;
 
     try {
-        const user = await User.findOne({ userName });
+        const user = await User.findOne({ userName }).populate('requests');
 
         if ( !user ) {
             return res.status( 400 ).json({
@@ -27,8 +27,8 @@ const login = async (req, res = response) => {
 
         const token = await generateJWT( user._id )
 
-        console.log('req.body.token')
-        console.log(req.body.tokenNotification)
+        // console.log('req.body.token')
+        // console.log(req.body.tokenNotification)
         
         user.token = req.body.tokenNotification
 

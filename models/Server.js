@@ -57,6 +57,9 @@ class Server {
         
         this.app.use('/api/messages', require('../routes/messages'))
         
+        this.app.use('/api/users', require('../routes/users'))
+
+        this.app.use('/api/upload', require('../routes/upload'))
     }
 
     configSocket() {

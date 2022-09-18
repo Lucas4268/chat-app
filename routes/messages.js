@@ -4,7 +4,9 @@ const { validateJWT } = require("../middlewares/validateJWT");
 
 const router = Router()
 
-router.get('/', validateJWT, getMessages);
+router.use( validateJWT );
+
+router.get('/', getMessages);
 
 
 module.exports = router;
